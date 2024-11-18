@@ -12,11 +12,11 @@ let HourHandWidth  = 2*3, halfHourHandWidth = HourHandWidth/2;
 let MinuteHandLength = outerRadius * 1.5;
 let MinuteHandWidth  = 2*2, halfMinuteHandWidth = MinuteHandWidth/2;
 
-let SecondHandLength = outerRadius * 1.5;
-let SecondHandWidth  = 2*1, halfSecondHandWidth = SecondHandWidth/2;
+// let SecondHandLength = outerRadius * 1.5;
+// let SecondHandWidth  = 2*1, halfSecondHandWidth = SecondHandWidth/2;
 
-let SecondHandLengthAdd = outerRadius * 0.4;
-let SecondHandWidthAdd  = 2*1, halfSecondHandWidthAdd = SecondHandWidthAdd/2;
+// let SecondHandLengthAdd = outerRadius * 0.4;
+// let SecondHandWidthAdd  = 2*1, halfSecondHandWidthAdd = SecondHandWidthAdd/2;
 
 let HourHandPolygon = [
   -halfHourHandWidth,halfHourHandWidth,
@@ -31,19 +31,20 @@ let MinuteHandPolygon = [
    halfMinuteHandWidth,halfMinuteHandWidth-MinuteHandLength,
    halfMinuteHandWidth,halfMinuteHandWidth,
 ];
-
+/*
 let SecondHandPolygon = [    
   -halfSecondHandWidth,halfSecondHandWidth,
   -halfSecondHandWidth,halfSecondHandWidth-SecondHandLength,
    halfSecondHandWidth,halfSecondHandWidth-SecondHandLength,   
 ];
-
+*/
+/*
 let SecondHandBackPolygon = [    
   -halfSecondHandWidth,halfSecondHandWidth,
   -halfSecondHandWidth,halfSecondHandWidth-SecondHandLengthAdd,
    halfSecondHandWidth,halfSecondHandWidth-SecondHandLengthAdd,       
 ];  
-
+*/
 let transformedPolygon = new Array(HourHandPolygon.length);
 
 /////////////////////////////////////////////////////////
@@ -158,12 +159,12 @@ function drawClockHands () {
   let now = new Date();
   let Hours   = now.getHours() % 12;
   let Minutes = now.getMinutes();
-  let Seconds = now.getSeconds();
+  // let Seconds = now.getSeconds();
 
   let HoursAngle   = (Hours+(Minutes/60))/12 * 2*Math.PI - Math.PI;
   let MinutesAngle = (Minutes/60)            * 2*Math.PI - Math.PI;
-  let SecondsAngle = (Seconds/60)            * 2*Math.PI - Math.PI;
-  let SecondsBackAngle = (Seconds/60) * 2*Math.PI;
+  // let SecondsAngle = (Seconds/60)            * 2*Math.PI - Math.PI;
+  // let SecondsBackAngle = (Seconds/60) * 2*Math.PI;
 
   transformPolygon(HourHandPolygon, CenterX,CenterY, HoursAngle);
   g.fillPoly(transformedPolygon);
@@ -179,7 +180,7 @@ function drawClockHands () {
 }
 ////////////////////////////////////////////////////////////
 
-let Timer;
+// let Timer = undefined;
 
 function refreshDisplay () {  
  
@@ -194,8 +195,8 @@ function refreshDisplay () {
   // update every minute
   let Pause = 60000 - (Date.now() % 60000);  
 
-  Timer = setTimeout(refreshDisplay,Pause);
-
+  // Timer = setTimeout(refreshDisplay,Pause);
+  setTimeout(refreshDisplay,Pause);
 }
 
 
