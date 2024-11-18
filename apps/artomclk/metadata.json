@@ -11,7 +11,7 @@
     "allow_emulator": true,
     "storage": [
       {"name":"artomclk.app.js","url":"app.js"},
-      {"name":"artomclk.img","url":"app-icon.js","evaluate": true}
+      {"name":"artomclk.img","url":"app-icon.js","evaluate":true}
     ]
   }
   
